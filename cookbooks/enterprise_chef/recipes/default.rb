@@ -27,7 +27,7 @@ end
 #package package_localpath do
 #	action :install
 #end
-package package_localpath
+#package package_localpath
 
 rpm_package package_name do
 	source package_localpath
