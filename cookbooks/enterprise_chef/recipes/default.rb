@@ -29,5 +29,13 @@ end
 #end
 package package_localpath
 
+rpm_package package_name do
+	source package_localpath
+	notifies :run, 'execute[chef-server-ctl reconfigure]', :immediately
+end
+
 ## This executes the shell command given as the argument.
-execute 'chef-server-ctl reconfigure'
+execute 'chef-server-ctl reconfigure' do
+	command 'chef-server-ctl reconfigure'
+	action :nothing
+end
