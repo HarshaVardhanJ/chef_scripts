@@ -21,16 +21,8 @@ httpd_config 'default' do
   action :create
 end
 
-#
-#
-## Add the site configuration.
-#httpd_config 'default' do
-#  source 'default.conf.erb'
-#end
-#
-## Install Apache and start the service.
-#httpd_service 'default' do
-#  mpm 'prefork'
-#  action [:create, :start]
-#  subscribes :restart, 'httpd_config[default]'
-#end
+template '/var/www/html/index.html' do
+	source 'index.html.erb'
+	mode '0644'
+end
+
