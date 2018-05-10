@@ -2,7 +2,7 @@
 driver:
   name: vagrant
   network:
-      - ["private_network", {ip: "192.168.56.101"}]
+    - ["private_network",{ip: "192.168.56.101"}]
 
 provisioner:
   name: chef_zero
@@ -21,7 +21,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[motd::default]
+      - recipe[lamp::default]
     verifier:
       inspec_tests:
         - test/integration/default
